@@ -26,17 +26,17 @@ alias duf='df -h $1' # Overall disk usage
 
 # Directory inspection =========================================================
 
-# alias l='lst $@' # List files in short format
-# alias ll='lst -Hpbc $@' # List files in long format
-# alias lll='lst -Hpbcmug $@' # List files in long format
-# alias la='lst -a $@' # List all files in short format
-# alias lla='lst -Hpbac $@'  # List all files in long format including hidden
-# alias llla='lst -Hpbacmug $@'  # List all files in long format including hidden
+alias l='lst $@' # List files in short format
+alias ll='lst -Hpbc $@' # List files in long format
+alias lll='lst -Hpbcmug $@' # List files in long format
+alias la='lst -a $@' # List all files in short format
+alias lla='lst -Hpbac $@'  # List all files in long format including hidden
+alias llla='lst -Hpbacmug $@'  # List all files in long format including hidden
 
-alias l='lsd $@' # List files in short format
-alias ll='lsd -l' # List files in long format
-alias la='lsd -a $@' # List all files in short format
-alias lla='lsd -la $@'  # List all files in long format including hidden
+# alias l='lsd $@' # List files in short format
+# alias ll='lsd -l' # List files in long format
+# alias la='lsd -a $@' # List all files in short format
+# alias lla='lsd -la $@'  # List all files in long format including hidden
 
 function tl { # List directory tree in N levels of depth
     depth="${1:-1}"
