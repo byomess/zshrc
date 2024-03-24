@@ -14,6 +14,11 @@ function xpath() {
 
 # Global variables ==============================================================
 
+export EDITOR="nvim"
+
+# Define the TERM variable for 256 color support
+export TERM="xterm-256color"
+
 # Define cache directory, defaulting to ~/.cache if XDG_CACHE_HOME is not set
 export CACHE_PATH="${XDG_CACHE_HOME:-$HOME/.cache}"
 
@@ -77,5 +82,21 @@ xsource "$NVM_DIR/bash_completion"
 
 # Load aliases
 xsource "$HOME/.config/zshrc/aliases.zsh"
+
+# Automatically start tmux if not already running
+if [ -z "$TMUX" ]; then
+  exec tmux
+fi
+
+# pnpm
+export PNPM_HOME="/home/byomess/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --zsh)"
 
 eval "$(starship init zsh)"

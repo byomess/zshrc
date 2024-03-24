@@ -4,14 +4,22 @@ alias py="python"
 alias mc="micro"
 alias pn="pnpm"
 alias ff="fastfetch"
+alias fff="fastfetch --logo none"
 alias nv="nvim"
+alias lg="lazygit"
+alias t="todo.sh"
 
 alias qq='exit 0' # Quick exit
 alias ee='exit 1' # Quick exit with error
 alias grep='grep --color=auto' # Colored grep
 alias rs='source $HOME/.zshrc' # Reload shell
+alias st='tmux source ~/.tmux.conf' # Reload tmux
 alias rr='clear && rs' # Reload shell and clear screen
 alias rrf='rr && fastfetch' # Reload shell, clear screen and fastfetch
+
+function lns {
+  ln -s "$(pwd)/$1" "$(pwd)/$2"
+}
 
 # Size look-up =================================================================
 
@@ -26,12 +34,12 @@ alias duf='df -h $1' # Overall disk usage
 
 # Directory inspection =========================================================
 
-alias l='lst $@' # List files in short format
-alias ll='lst -Hpbc $@' # List files in long format
-alias lll='lst -Hpbcmug $@' # List files in long format
-alias la='lst -a $@' # List all files in short format
-alias lla='lst -Hpbac $@'  # List all files in long format including hidden
-alias llla='lst -Hpbacmug $@'  # List all files in long format including hidden
+alias l='lst $@' # List directory entries in short format
+alias ll='lst -Hpbc $@' # List directory entries in table format
+alias lll='lst -Hpbcmug $@' # List directory entries in table format with more info
+alias la='lst -a $@' # List directory entries (including hidden) in short format
+alias lla='lst -Hpbac $@'  # List directory entries (including hidden) in table format
+alias llla='lst -Hpbacmug $@'  # List directory entries (including hidden) in table forma with more infot
 
 # alias l='lsd $@' # List files in short format
 # alias ll='lsd -l' # List files in long format
@@ -73,11 +81,18 @@ alias a='cd ..' # One directory up
 
 # Config files editing =========================================================
 
-alias ez='nvim $HOME/.zshrc'
-alias ea='nvim $HOME/.config/zsh/aliases.zsh'
-alias ev='nvim $HOME/.vimrc'
-alias en='nvim $HOME/.config/nvim'
-alias esh='nvim $HOME/.ssh/config'
+alias ebc='nvim ~/.bashrc'
+alias ezc='nvim $HOME/.zshrc'
+alias ezm='nvim $HOME/.config/zshrc/main.zsh'
+alias eza='nvim $HOME/.config/zshrc/aliases.zsh'
+alias evc='nvim $HOME/.vimrc'
+alias enc='nvim $HOME/.config/nvim'
+alias eni='nvim ~/.config/nvim/init.lua'
+alias etc='nvim $HOME/.tmux.conf'
+alias etcl='nvim $HOME/.tmux.conf.local'
+alias elc='nvim ~/.config/nvim/lua/config/lazy.lua'
+alias eac='nvim ~/.config/alacritty/alacritty.toml'
+alias esshc='nvim $HOME/.ssh/config'
 
 
 # Directory shortcuts ==========================================================
@@ -98,7 +113,7 @@ alias ipl="ip -4 -o addr show scope global | awk '{split(\$4, a, \"/\"); print a
 # File operations ==============================================================
 
 alias cx='chmod +x' # Make file executable
-alias rmf='sudo rm -rf' # remove recursively, be careful!
+alias rmf='rm -rf' # remove recursively, be careful!
 
 
 # Date and time operations =====================================================
