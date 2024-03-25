@@ -83,12 +83,5 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # Load Oh-My-Zsh
 xsource "$ZSH/oh-my-zsh.sh"
 
-# Load NVM
-xsource "$NVM_DIR/nvm.sh"
-
-# Load NVM bash completion
-xsource "$NVM_DIR/bash_completion"
-xpath "$(nvm which current)"
-
 # Load aliases
 xsource "$HOME/.config/zshrc/aliases.zsh"
