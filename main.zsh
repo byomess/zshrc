@@ -9,10 +9,15 @@ function xsource() {
 # Prepend a directory to the PATH environment variable
 # Usage: xpath "/path/to/directory"
 function xpath() {
-  export PATH="$1:$PATH"
+  case ":$1:" in
+    *$PATH*) ;;
+    *) export PATH="$1:$PATH" ;;
+  esac
 }
 
 # Global variables ==============================================================
+
+export EZA_COLORS="da=38;5;7:hd=1;35" 
 
 export EDITOR="nvim"
 
@@ -27,6 +32,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # Oh My Zsh installation path
 export ZSH="$HOME/.oh-my-zsh"
+
+# pnpm (Package Manager) home directory
+export PNPM_HOME="$HOME/.local/share/pnpm"
 
 # Env vars for colorizing manual pages with 'most' command
 export PAGER="most"
@@ -52,6 +60,7 @@ export GROFF_NO_SGR=1 # ensure compatibility with Konsole and Gnome-terminal
 
 xpath "$HOME/.local/bin"
 xpath "$HOME/.yarn/bin"
+xpath $PNPM_HOME
 
 
 # Configuration variables ======================================================
@@ -79,24 +88,7 @@ xsource "$NVM_DIR/nvm.sh"
 
 # Load NVM bash completion
 xsource "$NVM_DIR/bash_completion"
+xpath "$(nvm which current)"
 
 # Load aliases
 xsource "$HOME/.config/zshrc/aliases.zsh"
-
-# Automatically start tmux if not already running
-if [ -z "$TMUX" ]; then
-  exec tmux
-fi
-
-# pnpm
-export PNPM_HOME="/home/byomess/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-# Set up fzf key bindings and fuzzy completion
-eval "$(fzf --zsh)"
-
-eval "$(starship init zsh)"

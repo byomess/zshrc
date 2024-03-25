@@ -34,17 +34,18 @@ alias duf='df -h $1' # Overall disk usage
 
 # Directory inspection =========================================================
 
-alias l='lst $@' # List directory entries in short format
-alias ll='lst -Hpbc $@' # List directory entries in table format
-alias lll='lst -Hpbcmug $@' # List directory entries in table format with more info
-alias la='lst -a $@' # List directory entries (including hidden) in short format
-alias lla='lst -Hpbac $@'  # List directory entries (including hidden) in table format
-alias llla='lst -Hpbacmug $@'  # List directory entries (including hidden) in table forma with more infot
-
-# alias l='lsd $@' # List files in short format
-# alias ll='lsd -l' # List files in long format
-# alias la='lsd -a $@' # List all files in short format
-# alias lla='lsd -la $@'  # List all files in long format including hidden
+# eza aliases
+alias eza='eza --icons=always --color-scale-mode=gradient --color-scale --group-directories-first --time-style=long-iso'
+alias l='eza' # List files in short format
+alias la='eza -a' # List all files in short format
+alias ll='eza -l --no-user --no-permissions' # List files in long format
+alias lla='eza -la --no-user --no-permissions'  # List all files in long format including hidden
+alias llx='eza -l --no-user --no-permissions --total-size' # List files in long format with total size
+alias llax='eza -la --no-user --no-permissions --total-size'  # List all files in long format with total size
+alias lll='eza -lg' # List files in long format
+alias llla='eza -lag'  # List all files in long format including hidden
+alias lllx='eza -lg --total-size' # List files in long format with total size
+alias lllax='eza -lag --total-size'  # List all files in long format with total size
 
 function tl { # List directory tree in N levels of depth
     depth="${1:-1}"
@@ -84,7 +85,7 @@ alias a='cd ..' # One directory up
 alias ebc='nvim ~/.bashrc'
 alias ezc='nvim $HOME/.zshrc'
 alias ezm='nvim $HOME/.config/zshrc/main.zsh'
-alias eza='nvim $HOME/.config/zshrc/aliases.zsh'
+alias ezA='nvim $HOME/.config/zshrc/aliases.zsh'
 alias evc='nvim $HOME/.vimrc'
 alias enc='nvim $HOME/.config/nvim'
 alias eni='nvim ~/.config/nvim/init.lua'
