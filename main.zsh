@@ -77,11 +77,11 @@ plugins=(
 # Load Oh-My-Zsh
 xsource "$ZSH/oh-my-zsh.sh"
 
-xsource "$HOME/.config/zshrc/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-xsource "$HOME/.config/zshrc/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-fpath+="~/.config/zshrc/plugins/zsh-completions/src"
+xsource "$HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+xsource "$HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fpath+="~/.zsh/plugins/zsh-completions/src"
 fpath+="~/.zsh_functions"
 
 
 # Load aliases
-xsource "$HOME/.config/zshrc/aliases.zsh"
+xsource "$HOME/.zsh/aliases.zsh"
