@@ -1,27 +1,27 @@
 # Misc====================================================
 
+alias e="$EDITOR"
 alias py="python"
 alias mc="micro"
 alias pn="pnpm"
 alias ff="fastfetch"
 alias fff="fastfetch --logo none"
+alias v="vim"
 alias nv="nvim"
 alias lg="lazygit"
 alias p="pacui"
 alias t="todo.sh"
 alias n="nnn"
+alias xp="xpac"
 
-alias qq='exit 0' # Quick exit
-alias ee='exit 1' # Quick exit with error
-alias grep='grep --color=auto' # Colored grep
-alias rs='source $HOME/.zshrc' # Reload shell
-alias st='tmux source ~/.tmux.conf' # Reload tmux
-alias rr='clear && rs' # Reload shell and clear screen
-alias rrf='rr && fastfetch' # Reload shell, clear screen and fastfetch
+alias qq="exit 0" # Quick exit
+alias ee="exit 1" # Quick exit with error
+alias grep="grep --color=auto" # Colored grep
+alias rs="source $HOME/.zshrc" # Reload shell
+alias st="tmux source ~/.tmux.conf" # Reload tmux
+alias rr="clear && rs" # Reload shell and clear screen
+alias rrf="rr && fastfetch" # Reload shell, clear screen and fastfetch
 
-function lns {
-  ln -s "$(pwd)/$1" "$(pwd)/$2"
-}
 
 # Size look-up =================================================================
 
@@ -79,44 +79,54 @@ function tlda { # List directory all tree in N levels of depth, only folders
 
 alias cl='cd $@ && ls' # CD then list files
 alias al='cd ../$@ && ls' # Up a level and list files
-alias a='cd ..' # One directory up
+alias a="cd .." # One directory up
+alias aa="cd ../.." # Two directories up
+alias aaa="cd ../../.." # Three directories up
+alias aaaa="cd ../../../.." # Four directories up
+alias aaaaa="cd ../../../../.." # Five directories up
 
 
 # Config files editing =========================================================
 
-alias ebc='nvim ~/.bashrc'
-alias ezc='nvim $HOME/.zshrc'
-alias ezm='nvim $HOME/.zsh/main.zsh'
-alias ezA='nvim $HOME/.zsh/aliases.zsh'
-alias evc='nvim $HOME/.vimrc'
-alias enc='nvim $HOME/.config/nvim'
-alias eni='nvim ~/.config/nvim/init.lua'
-alias etc='nvim $HOME/.tmux.conf'
-alias etcl='nvim $HOME/.tmux.conf.local'
-alias elc='nvim ~/.config/nvim/lua/config/lazy.lua'
-alias eac='nvim ~/.config/alacritty/alacritty.toml'
-alias esshc='nvim $HOME/.ssh/config'
+alias ebc="$EDITOR $HOME/.bashrc"
+alias ezc="$EDITOR $HOME/.zshrc"
+alias ezm="$EDITOR $HOME/.zsh/main.zsh"
+alias ezs="$EDITOR $HOME/.zsh/aliases.zsh"
+alias eze="$EDITOR $HOME/.zsh/envs.zsh"
+alias ezh="$EDITOR $HOME/.zsh/helpers.zsh"
+alias evc="$EDITOR $HOME/.vimrc"
+alias enc="$EDITOR $HOME/.config/nvim"
+alias eni="$EDITOR $HOME/.config/nvim/init.lua"
+alias elv="$EDITOR $HOME/.config/nvim/lua/config/lazy.lua"
+alias esc="$EDITOR $HOME/.config/starship.toml"
+alias etc="$EDITOR $HOME/.tmux.conf"
+alias etlc="$EDITOR $HOME/.tmux.conf.local"
+alias eac="$EDITOR $HOME/.config/alacritty/alacritty.toml"
+alias esshc="$EDITOR $HOME/.ssh/config"
 
 
 # Directory shortcuts ==========================================================
 
-alias rep='cd ~/repos'
-alias dwl='cd ~/Downloads'
-alias doc='cd ~/Documents'
-alias pic='cd ~/Pictures'
+alias dld="cd $HOME/Downloads"
+alias doc="cd $HOME/Documents"
+alias pic="cd $HOME/Pictures"
+alias mus="cd $HOME/Music"
+alias vid="cd $HOME/Videos"
+alias rep="cd $HOME/repos"
+alias scr="cd $HOME/scripts"
 
 
 # Network ======================================================================
 
-alias ip4='curl -4 https://icanhazip.com' # get ipv4
-alias ip6='curl -6 https://icanhazip.com' # get ipv6
+alias ip4="curl -4 https://icanhazip.com" # get ipv4
+alias ip6="curl -6 https://icanhazip.com" # get ipv6
 alias ipl="ip -4 -o addr show scope global | awk '{split(\$4, a, \"/\"); print a[1]}'" # get local ip
 
 
 # File operations ==============================================================
 
-alias cx='chmod +x' # Make file executable
-alias rmf='rm -rf' # remove recursively, be careful!
+alias cx="chmod +x" # Make file executable
+alias rmf="rm -rf" # remove recursively, be careful!
 
 
 # Date and time operations =====================================================
@@ -126,4 +136,4 @@ alias dt='date "+%Y-%m-%d" "$@"' # ISO 8601 format for the current date
 
 # Git operations ===============================================================
 
-alias gs='git status -sb' # Concise git status
+alias gs="git status -sb" # Concise git status
