@@ -7,7 +7,9 @@ alias ff="fastfetch"
 alias fff="fastfetch --logo none"
 alias nv="nvim"
 alias lg="lazygit"
+alias p="pacui"
 alias t="todo.sh"
+alias n="nnn"
 
 alias qq='exit 0' # Quick exit
 alias ee='exit 1' # Quick exit with error
@@ -84,8 +86,8 @@ alias a='cd ..' # One directory up
 
 alias ebc='nvim ~/.bashrc'
 alias ezc='nvim $HOME/.zshrc'
-alias ezm='nvim $HOME/.config/zshrc/main.zsh'
-alias ezA='nvim $HOME/.config/zshrc/aliases.zsh'
+alias ezm='nvim $HOME/.zsh/main.zsh'
+alias ezA='nvim $HOME/.zsh/aliases.zsh'
 alias evc='nvim $HOME/.vimrc'
 alias enc='nvim $HOME/.config/nvim'
 alias eni='nvim ~/.config/nvim/init.lua'

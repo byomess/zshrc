@@ -69,19 +69,19 @@ ZSH_THEME="robbyrussell"
 
 plugins=(
   git
-  zsh-syntax-highlighting
-  zsh-autosuggestions
-  zsh-completions
 )
 
 
 # Sourced Scripts ==============================================================
 
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src 
-fpath+=${ZDOTDIR:-~}/.zsh_functions
-
 # Load Oh-My-Zsh
 xsource "$ZSH/oh-my-zsh.sh"
+
+xsource "$HOME/.config/zshrc/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+xsource "$HOME/.config/zshrc/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fpath+="~/.config/zshrc/plugins/zsh-completions/src"
+fpath+="~/.zsh_functions"
+
 
 # Load aliases
 xsource "$HOME/.config/zshrc/aliases.zsh"
