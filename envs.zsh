@@ -3,6 +3,7 @@ export EDITOR="nvim"
 
 # Define the TERM variable for 256 color support
 export TERM="xterm-256color"
+# export TERM="screen-256color"
 
 # Define cache directory, defaulting to ~/.cache if XDG_CACHE_HOME is not set
 export CACHE_PATH="${XDG_CACHE_HOME:-$HOME/.cache}"

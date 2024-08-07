@@ -1,34 +1,45 @@
 # Misc====================================================
 
 alias e="$EDITOR"
+alias ee="$EDITOR ."
 alias py="python"
 alias mc="micro"
 alias pn="pnpm"
-alias ff="fastfetch"
-alias fff="fastfetch --logo none"
+alias ff="fastfetch --logo none"
+alias ffl="fastfetch"
 alias v="vim"
 alias nv="nvim"
 alias lg="lazygit"
 alias p="pacui"
-alias t="todo.sh"
 alias n="nnn"
+alias t="tmux"
 alias xp="xpac"
+alias td="todo.sh"
 
 alias qq="exit 0" # Quick exit
-alias ee="exit 1" # Quick exit with error
 alias grep="grep --color=auto" # Colored grep
 alias rs="source $HOME/.zshrc" # Reload shell
 alias st="tmux source ~/.tmux.conf" # Reload tmux
 alias rr="clear && rs" # Reload shell and clear screen
 alias rrf="rr && fastfetch" # Reload shell, clear screen and fastfetch
+alias rnx="systemctl reload nginx" # Reload nginx
+alias rrnx="sudo systemctl restart nginx" # Restart nginx
+
+alias ets="source torsocks on"
+alias dts="source torsocks off"
+
+# Util system operations =================================================================
+
+alias clear-ram="echo 3 | sudo tee /proc/sys/vm/drop_caches"
 
 
 # Size look-up =================================================================
 
 function slu {
-  local depth="${2:-1}"
-  local results="-${3:-10}"
-  du -ah --max-depth="$depth" "$1" | sort -rh | head "$results"
+  calc_path="${1:-.}"
+  depth="${2:-1}"
+  results="${3:-999999}"
+  du -ah --max-depth="$depth" "$calc_path" | sort -h | tail -n "$results"
 }
 
 alias duf='df -h $1' # Overall disk usage
@@ -77,8 +88,8 @@ function tlda { # List directory all tree in N levels of depth, only folders
 
 # Navigation shortcuts =========================================================
 
-alias cl='cd $@ && ls' # CD then list files
-alias al='cd ../$@ && ls' # Up a level and list files
+alias cl='f() { cd $@ && eza }; f' # CD then list files
+alias al='f() { cd .. && eza }; f' # CD then list files in long format
 alias a="cd .." # One directory up
 alias aa="cd ../.." # Two directories up
 alias aaa="cd ../../.." # Three directories up
@@ -95,7 +106,7 @@ alias ezs="$EDITOR $HOME/.zsh/aliases.zsh"
 alias eze="$EDITOR $HOME/.zsh/envs.zsh"
 alias ezh="$EDITOR $HOME/.zsh/helpers.zsh"
 alias evc="$EDITOR $HOME/.vimrc"
-alias enc="$EDITOR $HOME/.config/nvim"
+alias enc="cd $HOME/.config/nvim && $EDITOR . && cd -"
 alias eni="$EDITOR $HOME/.config/nvim/init.lua"
 alias elv="$EDITOR $HOME/.config/nvim/lua/config/lazy.lua"
 alias esc="$EDITOR $HOME/.config/starship.toml"
@@ -103,7 +114,10 @@ alias etc="$EDITOR $HOME/.tmux.conf"
 alias etlc="$EDITOR $HOME/.tmux.conf.local"
 alias eac="$EDITOR $HOME/.config/alacritty/alacritty.toml"
 alias esshc="$EDITOR $HOME/.ssh/config"
+alias ekcc="$EDITOR /usr/share/plasma/plasmoids/org.kde.plasma.volume/contents/ui/main.qml"
 
+alias epc="sudo $EDITOR /etc/pacman.conf"
+alias eml="sudo $EDITOR /etc/pacman.d/mirrorlist"
 
 # Directory shortcuts ==========================================================
 
@@ -113,6 +127,8 @@ alias pic="cd $HOME/Pictures"
 alias mus="cd $HOME/Music"
 alias vid="cd $HOME/Videos"
 alias rep="cd $HOME/repos"
+alias replib="cd $HOME/repos/lib"
+alias lib="cd $HOME/repos/lib"
 alias scr="cd $HOME/scripts"
 
 
