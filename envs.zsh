@@ -1,5 +1,5 @@
 # Define the EDITOR variable for default text editor
-export EDITOR="nvim"
+export EDITOR="vim"
 
 # Define the TERM variable for 256 color support
 export TERM="xterm-256color"
@@ -15,7 +15,7 @@ export NVM_DIR="$HOME/.nvm"
 export ZSH="$HOME/.oh-my-zsh"
 
 # pnpm (Package Manager) home directory
-export PNPM_HOME="$HOME/.local/share/pnpm"
+# export PNPM_HOME="$HOME/.local/share/pnpm"
 
 # Env vars for colorizing manual pages with 'most' command
 export PAGER="most"

@@ -21,16 +21,15 @@ xfpath "$HOME/.zsh/plugins/zsh-completions/src"
 plugins=(
   git
   fzf
-  fd
   jsontools
   jump
   pass
-  catimg
+  #catimg
   dotenv
-  adb
   aliases
   archlinux
   starship
+  #ai-suggestions
 )
 
 # Load Oh-My-Zsh
@@ -39,9 +38,15 @@ xsource "$ZSH/oh-my-zsh.sh"
 # Load Zsh plugins
 xsource "$HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 xsource "$HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+#xsource "$HOME/.oh-my-zsh/custom/plugins/ai-suggestions/ai-suggestions.plugin.zsh"
 
 # Load aliases
 xsource "$HOME/.zsh/aliases.zsh"
+
+# Load NVM
+xsource "$NVM_DIR/nvm.sh"
+xsource "$NVM_DIR/bash_completion"
+xpath "$(nvm which current)"
 
 # Load Powerlevel10k theme
 # xsource "$HOME/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme"
